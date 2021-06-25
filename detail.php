@@ -16,41 +16,38 @@
     $payer->surname = "Landa";
     $payer->email = "test_user_63274575@testuser.com";
     $payer->phone = [
-      "area_code" => "11",
-      "number" => "22223333"
-    ];
-    
-    $payer->identification = [
-      "type" => "DNI",
-      "number" => "12345678"
+        "area_code" => "11",
+        "number" => "22223333"
     ];
     
     $payer->address = [
-      "street_name" => "Falsa",
-      "street_number" => 123,
-      "zip_code" => "1111"
+        "street_name" => "Falsa",
+        "street_number" => 123,
+        "zip_code" => "1111"
     ];
     
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item->id = '123';
+    $item->id = '1234';
     $item->title = $product['title'];
     $item->description = 'Dispositivo móvil de Tienda e-commerce';
     $item->picture_url = $siteUrl . substr($product['img'], 1);
     $item->quantity = (int) $product['unit'];
     $item->category_id = 'phones';
-    $item->currency_id = 'UYU';
+    $item->currency_id = 'ARS';
     $item->unit_price = (float) $product['price'];
     
     $preference->items = [$item];
     $preference->payer = $payer;
-    $preference->installments = 6;
     $preference->external_reference = 'gustavguez@gmail.com';
     $preference->auto_return = 'approved';
     $preference->notification_url = $siteUrl . "/notifications.php";
-    $preference->excluded_payment_methods = [
-        [ 'id' => 'redlink' ],
-        [ 'id' => 'amex' ]
+    $preference->payment_methods = [
+        'excluded_payment_methods' => [
+            [ 'id' => 'redlink' ],
+            [ 'id' => 'amex' ]
+        ],
+        'installments' => 6
     ];
     $preference->back_urls = [
         "success" => $siteUrl . "/success.php",
@@ -197,7 +194,7 @@
                                             <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar la compra</button>
+                                    <a href="<?php echo $preference->init_point; ?>" class="mercadopago-button" style="padding: 10px;">Pagar la compra</a>
                                 </div>
                             </div>
                         </div>
