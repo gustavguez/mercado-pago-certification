@@ -97,6 +97,7 @@
                                                 <p class="as-producttile-tilelink">
                                                     <span data-ase-truncate="2" style="color: blue;">EL PAGO ESTÁ PENDIENTE</span>
                                                 </p>
+                                                <a href="/" style="margin-top: 50px; display: block;">Inicio</a>
                                             </h3>
                                         </div>
                                     </div>

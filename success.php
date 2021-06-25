@@ -96,9 +96,11 @@
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
                                                     <span data-ase-truncate="2" style="color: green;">EL PAGO FUE REALIZADO</span>
-                                                    <h3>PAYMENT METHOD ID: <?php echo $_GET['payment_method_id'] ?></h3>
-                                                    <h3>EXTERNAL REFERENCE: <?php echo $_GET['external_reference'] ?></h3>
-                                                    <h3>ID PAGO: <?php echo $_GET['payment_id'] ?? $_GET['collection_id'] ?></h3>
+                                                    <h3 style="margin-top: 20px;">PAYMENT TYPE: <?php echo $_GET['payment_type'] ?></h3>
+                                                    <h3 style="margin-top: 20px;">EXTERNAL REFERENCE: <?php echo $_GET['external_reference'] ?></h3>
+                                                    <h3 style="margin-top: 20px;">ID PAGO: <?php echo $_GET['payment_id'] ?? $_GET['collection_id'] ?></h3>
+
+                                                    <a href="/" style="margin-top: 50px; display: block;">Inicio</a>
                                                 </p>
                                             </h3>
                                         </div>
